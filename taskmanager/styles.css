@@ -27,7 +27,10 @@ html {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background:
+        linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><style>.clock{stroke:rgba(255,255,255,0.15);stroke-width:0.5;fill:none}.hand{stroke:rgba(255,255,255,0.1);stroke-width:0.4;stroke-linecap:round}</style></defs><g class="clock"><circle cx="50" cy="50" r="45"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.15)"/><line x1="50" y1="10" x2="50" y2="25" class="hand"/><line x1="50" y1="50" x2="65" y2="50" class="hand"/><circle cx="50" cy="50" r="0.8" fill="rgba(255,255,255,0.2)"/></g><g class="clock" transform="translate(20,20)"><circle cx="50" cy="50" r="35"/><circle cx="50" cy="50" r="1.5" fill="rgba(255,255,255,0.1)"/></g><g class="clock" transform="translate(60,65)"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></g></svg>') center / cover;
+    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
@@ -84,6 +87,7 @@ body {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -104,6 +108,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -274,6 +279,7 @@ body {
         opacity: 0;
         transform: translateX(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -442,7 +448,10 @@ html.dark-mode :root {
 }
 
 html.dark-mode body {
-    background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+    background:
+        linear-gradient(135deg, rgba(30, 27, 75, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><style>.clock{stroke:rgba(255,255,255,0.08);stroke-width:0.5;fill:none}.hand{stroke:rgba(255,255,255,0.06);stroke-width:0.4;stroke-linecap:round}</style></defs><g class="clock"><circle cx="50" cy="50" r="45"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.08)"/><line x1="50" y1="10" x2="50" y2="25" class="hand"/><line x1="50" y1="50" x2="65" y2="50" class="hand"/><circle cx="50" cy="50" r="0.8" fill="rgba(255,255,255,0.1)"/></g><g class="clock" transform="translate(20,20)"><circle cx="50" cy="50" r="35"/><circle cx="50" cy="50" r="1.5" fill="rgba(255,255,255,0.05)"/></g><g class="clock" transform="translate(60,65)"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></g></svg>') center / cover;
+    background-attachment: fixed;
 }
 
 html.dark-mode .app-header {

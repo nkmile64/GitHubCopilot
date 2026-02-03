@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s infinite linear;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    padding: 30px;
+    width: 360px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.calculator h1 {
+    margin: 0;
+    color: #1a1a2e;
+    font-size: 32px;
+    flex: 1;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.toggle-dark {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-dark:hover {
+    transform: scale(1.2) rotate(20deg);
+}
+
+.display {
+    margin-bottom: 25px;
+}
+
+#display {
+    width: 100%;
+    padding: 20px;
+    font-size: 28px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    text-align: right;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    color: #1a1a2e;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+#display:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3), inset 0 0 10px rgba(102, 126, 234, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    padding: 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    color: #1a1a2e;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.btn.operator {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn.operator:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn.equals {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    grid-column: span 2;
+}
+
+.btn.equals:hover {
+    background: linear-gradient(135deg, #38a169 0%, #48bb78 100%);
+    box-shadow: 0 12px 25px rgba(72, 187, 120, 0.4);
+}
+
+.btn.clear {
+    background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    color: white;
+}
+
+.btn.clear:hover {
+    background: linear-gradient(135deg, #e53e3e 0%, #f56565 100%);
+    box-shadow: 0 12px 25px rgba(245, 101, 101, 0.4);
+}
+
+.btn.delete {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+    color: white;
+}
+
+.btn.delete:hover {
+    background: linear-gradient(135deg, #dd6b20 0%, #ed8936 100%);
+    box-shadow: 0 12px 25px rgba(237, 137, 54, 0.4);
+}
+
+.btn.zero {
+    grid-column: span 2;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+}
+
+body.dark-mode .calculator {
+    background: rgba(20, 25, 40, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+body.dark-mode .calculator h1 {
+    color: #e8e8f0;
+}
+
+body.dark-mode #display {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+    color: #e8e8f0;
+    border-color: #e94560;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.2), inset 0 0 10px rgba(233, 69, 96, 0.05);
+}
+
+body.dark-mode #display:focus {
+    border-color: #e94560;
+    box-shadow: 0 0 25px rgba(233, 69, 96, 0.4), inset 0 0 10px rgba(233, 69, 96, 0.15);
+}
+
+body.dark-mode .btn {
+    background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+    color: #e8e8f0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn:hover {
+    background: linear-gradient(135deg, #3a3a4e 0%, #2a2a3e 100%);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .btn.operator {
+    background: linear-gradient(135deg, #e94560 0%, #d63447 100%);
+    color: white;
+}
+
+body.dark-mode .btn.operator:hover {
+    background: linear-gradient(135deg, #d63447 0%, #e94560 100%);
+    box-shadow: 0 12px 25px rgba(233, 69, 96, 0.5);
+}
+
+body.dark-mode .btn.equals {
+    background: linear-gradient(135deg, #2c5aa0 0%, #1f3f7f 100%);
+    color: white;
+}
+
+body.dark-mode .btn.equals:hover {
+    background: linear-gradient(135deg, #1f3f7f 0%, #2c5aa0 100%);
+    box-shadow: 0 12px 25px rgba(44, 90, 160, 0.4);
+}
+
+body.dark-mode .btn.clear {
+    background: linear-gradient(135deg, #c9184a 0%, #a01237 100%);
+    color: white;
+}
+
+body.dark-mode .btn.clear:hover {
+    background: linear-gradient(135deg, #a01237 0%, #c9184a 100%);
+    box-shadow: 0 12px 25px rgba(201, 24, 74, 0.4);
+}
+
+body.dark-mode .btn.delete {
+    background: linear-gradient(135deg, #d64045 0%, #c0333f 100%);
+    color: white;
+}
+
+body.dark-mode .btn.delete:hover {
+    background: linear-gradient(135deg, #c0333f 0%, #d64045 100%);
+    box-shadow: 0 12px 25px rgba(214, 64, 69, 0.4);
+}
