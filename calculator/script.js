@@ -79,3 +79,28 @@ document.addEventListener('keydown', (event) => {
         clearDisplay();
     }
 });
+
+// test calculator functions
+function testCalculator() {
+    // Test appending numbers
+    display.value = '';
+    appendNumber('5');
+    console.assert(display.value === '5', 'Test 1 Failed: appendNumber');
+    // Test appending operators
+    appendOperator('+');
+    console.assert(display.value === '5+', 'Test 2 Failed: appendOperator');
+    // Test appending decimal
+    appendDecimal();
+    console.assert(display.value === '5+.', 'Test 3 Failed: appendDecimal');
+    // Test calculating result
+    display.value = '5+3';
+    calculate();
+    console.assert(display.value === '8', 'Test 4 Failed: calculate');
+    // Test clearing display    clearDisplay();
+    console.assert(display.value === '', 'Test 5 Failed: clearDisplay');
+    // Test deleting last character
+    display.value = '123';
+    deleteLastChar();
+    console.assert(display.value === '12', 'Test 6 Failed: deleteLastChar');
+    console.log('All tests passed!');
+}
