@@ -1,0 +1,136 @@
+:root {
+    --bg: #f6f7fb;
+    --card: #fff;
+    --muted: #666;
+    --accent: #0b6efd;
+    --danger: #e04848;
+    --gap: 12px
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Segoe UI, Arial, Helvetica, sans-serif
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: #111
+}
+
+.container {
+    max-width: 900px;
+    margin: 36px auto;
+    padding: 16px
+}
+
+.card {
+    background: var(--card);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .06)
+}
+
+h1 {
+    margin: 0 0 12px
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    flex: 1
+}
+
+input[type=number] {
+    width: 84px
+}
+
+.btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer
+}
+
+.btn.secondary {
+    background: #777
+}
+
+.btn.danger {
+    background: var(--danger)
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0
+}
+
+.muted {
+    color: var(--muted);
+    margin: 12px 0
+}
+
+.hidden {
+    display: none
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .35)
+}
+
+.modal-content {
+    min-width: 320px
+}
+
+.actions button {
+    margin-right: 6px
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    cursor: pointer
+}
+
+.action-btn.delete {
+    color: var(--danger)
+}
+
+@media(max-width:600px) {
+    .row {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    input[type=number] {
+        width: 100%
+    }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Grocery List</h1>
+        <p class="muted">Keep track of your grocery items.</p>
+
+        <form id="addForm" class="card">
+            <div class="row">
+                <input id="name" placeholder="Item name" required />
+                <input id="qty" placeholder="Qty" type="number" min="1" value="1" required />
+                <input id="category" placeholder="Category (optional)" />
+                <button type="submit" class="btn">Add</button>
+            </div>
+        </form>
+
+        <div class="controls">
+            <input id="search" placeholder="Search items..." />
+            <button id="clearAll" class="btn danger">Clear All</button>
+        </div>
+
+        <section id="listSection" class="card">
+            <table id="itemsTable">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="itemsBody"></tbody>
+            </table>
+            <p id="emptyNotice" class="muted">No items yet. Add something!</p>
+        </section>
+
+        <div id="editModal" class="modal hidden">
+            <div class="modal-content card">
+                <h2>Edit Item</h2>
+                <form id="editForm">
+                    <input id="editName" required />
+                    <input id="editQty" type="number" min="1" required />
+                    <input id="editCategory" />
+                    <div class="row">
+                        <button type="submit" class="btn">Save</button>
+                        <button type="button" id="cancelEdit" class="btn secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
